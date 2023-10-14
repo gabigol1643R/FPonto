@@ -17,8 +17,8 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>182</x>
-      <y>204</y>
+      <x>170</x>
+      <y>200</y>
       <width>151</width>
       <height>41</height>
      </rect>
@@ -30,7 +30,7 @@
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
-      <x>170</x>
+      <x>160</x>
       <y>110</y>
       <width>181</width>
       <height>41</height>
@@ -59,8 +59,20 @@
      <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuPonto">
+    <property name="title">
+     <string>Ponto</string>
+    </property>
+    <addaction name="actionGerenciar_pontos"/>
+   </widget>
+   <addaction name="menuPonto"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionGerenciar_pontos">
+   <property name="text">
+    <string>Gerenciar pontos</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
