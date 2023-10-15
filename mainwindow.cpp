@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "fm_pontos.h"
 #include <QtSql>
 #include <QDir>
 #include <QMessageBox>
@@ -63,3 +64,9 @@ void MainWindow::on_pushButton_clicked()
 
 }
 
+
+void MainWindow::on_actionGerenciar_pontos_triggered()
+{
+    fm_pontos f_pontos;
+    f_pontos.exec();
+}
