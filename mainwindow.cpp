@@ -36,10 +36,10 @@ void MainWindow::on_pushButton_clicked()
     QString id=ui->lineEdit->text();
     QString data=QDate::currentDate().toString("yyyy-MM-dd");
 
-    query.prepare("select * from ponto where id_colab="+id+" order by data DESC LIMIT 1");
+    query.prepare("select * from ponto where id_colab="+id+" and data='"+data+"' order by data DESC LIMIT 1");
     if(query.exec()){
         query.first();
-        if(query.value(3).isValid() && query.value(4).isValid()){
+        if(!query.value(3).isNull() && !query.value(4).isNull()){
             QMessageBox::warning(this,"Erro","Ponto ja foi batido duas vezes");
             return;
         }else{
