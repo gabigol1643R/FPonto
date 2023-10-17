@@ -49,17 +49,22 @@ void MainWindow::on_pushButton_clicked()
 
     if(txt!=""){
         QString saida=QTime::currentTime().toString("hh:mm:ss");
-        query.prepare("update ponto set saida='"+saida+"' where id_colab="+id+"");
-    }else{
-        QString entr=QTime::currentTime().toString("hh:mm:ss");
-        query.prepare("insert into ponto (id_colab,data,entrada,saida) values "
-                      "("+id+",'"+data+"','"+entr+"',NULL)");
-    }
-
-    if(query.exec()){
+        if(!query.exec("update ponto set saida='"+saida+"' where id_colab="+id+" and data='"+data+"'")){
+            QMessageBox::warning(this,"ERRO","Erro ao bater ponto");
+            return;
+        }
+        query.exec("update ponto set total=strftime('%H:%M:%S',CAST((julianday(saida)-julianday(entrada)) AS REAL),'12:00') "
+                   "where id_colab="+id+" and data='"+data+"'");
         QMessageBox::information(this,"Sucesso","Ponto batido com sucesso !");
     }else{
-        QMessageBox::warning(this,"Erro","Erro ao bater ponto ");
+        QString entr=QTime::currentTime().toString("hh:mm:ss");
+        query.prepare("insert into ponto (id_colab,data,entrada) values "
+                      "("+id+",'"+data+"','"+entr+"')");
+        if(!query.exec()){
+            QMessageBox::warning(this,"ERRO","Erro ao bater ponto");
+            return;
+        }
+         QMessageBox::information(this,"Sucesso","Ponto batido com sucesso !");
     }
 
 }
