@@ -12,9 +12,9 @@ Primeiro você precisará das seguintes dependências:
 - libQt6Sql
 
 Siga os passos abaixo:
-'''
+```sh
 git clone 
 cd FPonto
 qmake
 make
-'''
+```
