@@ -13,7 +13,7 @@ Primeiro você precisará das seguintes dependências:
 
 Siga os passos abaixo:
 ```sh
-git clone 
+git clone https://github.com/gabigol1643R/FPonto.git
 cd FPonto
 qmake
 make
