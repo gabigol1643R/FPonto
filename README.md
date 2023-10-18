@@ -1,5 +1,6 @@
 # FPonto
-Software simples que permite registrar e visualizar os pontos de horário dos usuarios. Desenvolvido com o objetivo de aprendizagem.
+Software simples para linux que permite registrar e visualizar os pontos de horário dos usuarios. Desenvolvido com o objetivo de aprendizagem.
+
 
 # Compilando o programa
 Primeiro você precisará das seguintes dependências:
